@@ -1,10 +1,19 @@
 <template>
   <div id="app">
+    <router-view></router-view>
     <ul class="footer-bar">
-      <li class="footer-bar__item">首页</li>
-      <li class="footer-bar__item">分类</li>
-      <li class="footer-bar__item">购物车</li>
-      <li class="footer-bar__item">我的</li>
+      <li class="footer-bar__item">
+        <router-link to="/">首页</router-link>
+      </li>
+      <li class="footer-bar__item">
+        <router-link to="/category">分类</router-link>
+      </li>
+      <li class="footer-bar__item">
+        <router-link to="/cart">购物车</router-link>
+      </li>
+      <li class="footer-bar__item">
+        <router-link to="/profile">我的</router-link>
+      </li>
     </ul>
   </div>
 </template>

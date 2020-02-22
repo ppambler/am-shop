@@ -1,16 +1,16 @@
 <template>
-  <div class="home">
-    首页
+  <div class="category">
+    分类
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home"
+  name: "Category"
 };
 </script>
 
 <style lang="scss" scoped>
-.home {
+.category {
 }
 </style>
