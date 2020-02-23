@@ -8,10 +8,16 @@ Vue.config.productionTip = false;
 import "@/assets/css/reset.css";
 import "@/assets/js/rem.js";
 
-import Vant from "vant";
-import "vant/lib/index.css";
+// 引入所有组件
+// import Vant from "vant";
+// import "vant/lib/index.css";
 
-Vue.use(Vant);
+// Vue.use(Vant);
+
+// 按需引入组件
+import { Icon, Button } from "vant";
+// 可链式注册组件
+Vue.use(Icon).use(Button);
 
 new Vue({
   router,
