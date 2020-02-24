@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    首页
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="primary">主要按钮</van-button>
-    <van-icon name="chat-o" />
+    <van-nav-bar title="首页">
+      <van-icon name="search" slot="left" />
+      <van-icon name="cart-o" slot="right" />
+    </van-nav-bar>
   </div>
 </template>
 

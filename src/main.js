@@ -15,9 +15,13 @@ import "@/assets/js/rem.js";
 // Vue.use(Vant);
 
 // 按需引入组件
-import { Icon, Button } from "vant";
+import { Icon, Button, NavBar, Tabbar, TabbarItem } from "vant";
 // 可链式注册组件
-Vue.use(Icon).use(Button);
+Vue.use(Icon)
+  .use(Button)
+  .use(Tabbar)
+  .use(TabbarItem)
+  .use(NavBar);
 
 new Vue({
   router,
