@@ -6,7 +6,9 @@ import store from "./store";
 Vue.config.productionTip = false;
 
 import "@/assets/css/reset.css";
-import "@/assets/js/rem.js";
+// import "@/assets/js/rem.js";
+
+import "amfe-flexible/index.js";
 
 // 引入所有组件
 // import Vant from "vant";

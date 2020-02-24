@@ -15,7 +15,6 @@
       >
         <van-swipe-item
           class="carousel-swipe__item"
-          style="height: 3rem;"
           v-for="(item, index) in carouselItem"
           :key="index"
         >
@@ -52,21 +51,26 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  padding: 0.32rem;
+  padding: 16px;
 }
 .van-nav-bar {
-  margin-left: -0.32rem;
-  margin-right: -0.32rem;
+  margin-left: -16px;
+  margin-right: -16px;
+  .van-icon {
+    font-size: 16px;
+  }
 }
 
 .carousel {
-  margin-top: 0.08rem;
+  margin-top: 8px;
   &-swipe {
-    border-radius: 0.1rem;
+    border-radius: 5px;
 
     &__item {
       img {
         width: 100%;
+        height: 185px;
+        background-size: contain;
       }
     }
   }
