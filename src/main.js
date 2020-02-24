@@ -15,12 +15,24 @@ import "@/assets/js/rem.js";
 // Vue.use(Vant);
 
 // 按需引入组件
-import { Icon, Button, NavBar, Tabbar, TabbarItem } from "vant";
+import {
+  Icon,
+  Button,
+  NavBar,
+  Tabbar,
+  TabbarItem,
+  Swipe,
+  SwipeItem,
+  Lazyload
+} from "vant";
 // 可链式注册组件
 Vue.use(Icon)
   .use(Button)
   .use(Tabbar)
   .use(TabbarItem)
+  .use(Swipe)
+  .use(SwipeItem)
+  .use(Lazyload)
   .use(NavBar);
 
 new Vue({
