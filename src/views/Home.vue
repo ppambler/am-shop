@@ -65,6 +65,7 @@
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import axios from "axios";
+import url from "@/service.config";
 
 export default {
   name: "Home",
@@ -327,7 +328,7 @@ export default {
     // let url2 = "http://www.tangxt.cn/getUser";
     // let url3 = "http://www.tangxt.cn/regexp";
     // let url4 = "http://www.tangxt.cn/list";
-    let url5 = "http://www.tangxt.cn/getVarietyItem";
+    // let url5 = "http://www.tangxt.cn/getVarietyItem";
     // axios
     //   .get(url1)
     //   .then(res1 => {
@@ -346,7 +347,7 @@ export default {
     //     console.log(res4);
     //   });
 
-    axios.get(url5).then(res => {
+    axios.get(url.getVarietyItem).then(res => {
       console.log(res);
       this.varietyItem = res.data;
     });
