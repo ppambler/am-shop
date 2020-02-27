@@ -64,6 +64,7 @@
 <script>
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import axios from "axios";
 
 export default {
   name: "Home",
@@ -71,6 +72,7 @@ export default {
     swiper,
     swiperSlide
   },
+
   data() {
     return {
       swiperOption: {
@@ -319,6 +321,12 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    let url1 = "http://www.tangxt.cn/getList";
+    axios.get(url1).then(res1 => {
+      console.log(res1);
+    });
   }
 };
 </script>

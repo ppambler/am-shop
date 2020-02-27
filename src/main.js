@@ -9,6 +9,7 @@ import "@/assets/css/reset.css";
 // import "@/assets/js/rem.js";
 
 import "amfe-flexible/index.js";
+import "@/mock/mock.js";
 
 // 引入所有组件
 // import Vant from "vant";
