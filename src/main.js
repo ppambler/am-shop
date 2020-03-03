@@ -19,6 +19,10 @@ import "@/mock/mock.js";
 
 // 按需引入组件
 import {
+  CellGroup,
+  Field,
+  Tab,
+  Tabs,
   Icon,
   Button,
   NavBar,
@@ -30,7 +34,11 @@ import {
 } from "vant";
 // 可链式注册组件
 Vue.use(Icon)
+  .use(CellGroup)
+  .use(Field)
   .use(Button)
+  .use(Tab)
+  .use(Tabs)
   .use(Tabbar)
   .use(TabbarItem)
   .use(Swipe)
