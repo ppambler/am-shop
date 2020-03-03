@@ -5,7 +5,9 @@ const MOCKURL = "http://www.tangxt.cn/"; // mock模拟
 
 const URL = {
   getVarietyItem: MOCKURL + "getVarietyItem",
-  getHotProduct: MOCKURL + "getHotProduct"
+  getHotProduct: MOCKURL + "getHotProduct",
+  registerUser: SERVERURL + "user/registerUser",
+  loginUser: SERVERURL + "user/loginUser"
 };
 
 export default URL;

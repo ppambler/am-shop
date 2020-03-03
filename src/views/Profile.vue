@@ -62,6 +62,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import url from "@/service.config.js";
+
 export default {
   name: "Profile",
   data() {
@@ -73,7 +76,16 @@ export default {
     };
   },
   methods: {
-    registerHandler() {},
+    registerHandler() {
+      axios({
+        url: url.registerUser,
+        method: "post",
+        data: {
+          username: this.registerUsername,
+          password: this.registerPassword
+        }
+      });
+    },
     loginHandler() {}
   }
 };
