@@ -11,6 +11,7 @@
             placeholder="请输入用户名"
           />
           <van-field
+            type="password"
             label="密码"
             required
             clearable
@@ -39,6 +40,7 @@
             placeholder="请输入用户名"
           />
           <van-field
+            type="password"
             label="密码"
             required
             clearable
@@ -84,7 +86,13 @@ export default {
           username: this.registerUsername,
           password: this.registerPassword
         }
-      });
+      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(e => {
+          console.log(e);
+        });
     },
     loginHandler() {}
   }

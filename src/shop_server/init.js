@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 const db = "mongodb://localhost/am-shop";
 
+// 引入 schema
+const glob = require("glob");
+const path = require("path");
+exports.initSchemas = () => {
+  glob.sync(path.resolve(__dirname, "./model", "*.js")).forEach(require);
+};
+
 // 连接数据库方法
 exports.connect = () => {
   // 连接数据库
