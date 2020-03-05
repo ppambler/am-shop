@@ -83,15 +83,24 @@ export default {
         url: url.registerUser,
         method: "post",
         data: {
-          username: this.registerUsername,
+          userName: this.registerUsername,
           password: this.registerPassword
         }
       })
         .then(res => {
-          console.log(res);
+          if (res.data.code == 200) {
+            this.$toast.success("注册成功！");
+            this.registerUsername = "";
+            this.registerPassword = "";
+          } else {
+            this.$toast.fail(
+              `${res.data.message.keyValue.userName}已存在，请换个名字重新注册！`
+            );
+          }
         })
         .catch(e => {
           console.log(e);
+          this.$toast.fail("注册失败！");
         });
     },
     loginHandler() {}

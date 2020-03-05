@@ -11,6 +11,10 @@ app.use(
   })
 );
 
+// 接收前端post请求
+const bodyParser = require("koa-bodyparser");
+app.use(bodyParser());
+
 // 加载路由
 const Router = require("koa-router");
 let user = require("./controller/user.js");

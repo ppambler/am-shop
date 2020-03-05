@@ -19,6 +19,7 @@ import "@/mock/mock.js";
 
 // 按需引入组件
 import {
+  Toast,
   CellGroup,
   Field,
   Tab,
@@ -34,6 +35,7 @@ import {
 } from "vant";
 // 可链式注册组件
 Vue.use(Icon)
+  .use(Toast)
   .use(CellGroup)
   .use(Field)
   .use(Button)
