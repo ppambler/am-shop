@@ -1,10 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt");
+
 const userSchema = new Schema({
   userId: Schema.Types.ObjectId,
   userName: { unique: true, type: String },
   password: String,
   createDate: { type: Date, default: Date.now() }
 });
+
+// 发布订阅么？
+userSchema.pre("save", function(next) {
+  // 随机生成salt   一般是10迭代次数
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) return next(err);
+    bcrypt.hash(this.password, salt, (err, hash) => {
+      if (err) return next(err);
+      this.password = hash;
+      next();
+    });
+  });
+});
+
 // 发布模型
 mongoose.model("User", userSchema);
