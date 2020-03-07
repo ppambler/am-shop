@@ -1,15 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    userInfo: {
+      userName: "未登录"
+    }
   },
   mutations: {
+    changeLogin(state, status) {
+      state.userInfo = status;
+    }
   },
   actions: {
+    loginAction({ commit }, user) {
+      // user参数值正是上边那个status的实参值
+      commit("changeLogin", user);
+    }
   },
-  modules: {
-  }
-})
+  modules: {}
+});

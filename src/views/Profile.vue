@@ -72,6 +72,7 @@
 <script>
 import axios from "axios";
 import url from "@/service.config.js";
+import { mapActions } from "vuex";
 
 export default {
   name: "Profile",
@@ -86,6 +87,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["loginAction"]),
     registerHandler() {
       this.isClick("no");
       axios({
@@ -136,8 +138,12 @@ export default {
             })
               .then(() => {
                 this.$toast.success("登录成功");
+                // 保存登录转态
+                this.loginAction(res.data.userInfo);
+                this.$router.push("/");
               })
               .catch(err => {
+                this.$toast.fail("保存登录状态失败");
                 console.log(err);
               })
               .finally(() => {

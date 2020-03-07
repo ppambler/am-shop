@@ -48,8 +48,10 @@ Vue.use(Icon)
   .use(Lazyload)
   .use(NavBar);
 
-new Vue({
+let vm = new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount("#app");
+
+console.log(vm);
