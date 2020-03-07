@@ -26,6 +26,9 @@
             @click="loginHandler"
             type="primary"
             size="large"
+            :loading="isLoading"
+            loading-type="spinner"
+            :disabled="isDisabled"
             >登录</van-button
           >
         </div>
@@ -55,6 +58,9 @@
             @click="registerHandler"
             type="primary"
             size="large"
+            :loading="isLoading"
+            loading-type="spinner"
+            :disabled="isDisabled"
             >注册</van-button
           >
         </div>
@@ -71,6 +77,8 @@ export default {
   name: "Profile",
   data() {
     return {
+      isLoading: false,
+      isDisabled: false,
       registerUsername: "",
       registerPassword: "",
       loginUsername: "",
@@ -79,6 +87,7 @@ export default {
   },
   methods: {
     registerHandler() {
+      this.isClick("no");
       axios({
         url: url.registerUser,
         method: "post",
@@ -101,9 +110,64 @@ export default {
         .catch(e => {
           console.log(e);
           this.$toast.fail("注册失败！");
+        })
+        .finally(() => {
+          this.isClick("yes");
         });
     },
-    loginHandler() {}
+    loginHandler() {
+      this.isClick("no");
+      axios({
+        url: url.loginUser,
+        method: "post",
+        data: {
+          userName: this.loginUsername,
+          password: this.loginPassword
+        }
+      })
+        .then(res => {
+          console.log(res);
+          if (res.data.code == 200) {
+            // 模拟网络延时
+            new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+              }, 1000);
+            })
+              .then(() => {
+                this.$toast.success("登录成功");
+              })
+              .catch(err => {
+                console.log(err);
+              })
+              .finally(() => {
+                this.isClick("yes");
+              });
+          } else {
+            this.isClick("yes");
+            this.$toast.fail(`${res.data.message}`);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          this.isClick("yes");
+          this.$toast.fail("登录失败");
+        });
+    },
+    isClick(x) {
+      switch (x) {
+        case "yes":
+          this.isLoading = false;
+          this.isDisabled = false;
+          break;
+        case "no":
+          this.isLoading = true;
+          this.isDisabled = true;
+          break;
+        default:
+          break;
+      }
+    }
   }
 };
 </script>
