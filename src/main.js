@@ -19,6 +19,10 @@ import "@/mock/mock.js";
 
 // 按需引入组件
 import {
+  PullRefresh,
+  List,
+  Row,
+  Col,
   Toast,
   CellGroup,
   Field,
@@ -35,6 +39,10 @@ import {
 } from "vant";
 // 可链式注册组件
 Vue.use(Icon)
+  .use(PullRefresh)
+  .use(List)
+  .use(Row)
+  .use(Col)
   .use(Toast)
   .use(CellGroup)
   .use(Field)

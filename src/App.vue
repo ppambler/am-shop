@@ -19,7 +19,7 @@ export default {
 };
 </script>
 <style lang="scss">
-* {
-  // box-sizing: border-box;
+body {
+  font-size: 12px;
 }
 </style>

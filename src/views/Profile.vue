@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <van-tabs color="#07c160">
+    <van-tabs color="#1b8afa">
       <van-tab title="登录">
         <van-cell-group>
           <van-field
@@ -21,6 +21,7 @@
         </van-cell-group>
         <div>
           <van-button
+            color="#1b8afa"
             plain
             hairline
             @click="loginHandler"
@@ -53,6 +54,7 @@
         </van-cell-group>
         <div>
           <van-button
+            color="#1b8afa"
             plain
             hairline
             @click="registerHandler"
