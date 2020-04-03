@@ -4,7 +4,7 @@
     <van-nav-bar title="首页" class="nav-title">
       <van-icon name="search" slot="left" />
       <van-icon @click="$router.push('/profile')" slot="right">{{
-        userInfo.userName
+        JSON.stringify(userInfo) === "{}" ? "未登录" : userInfo.userName
       }}</van-icon>
     </van-nav-bar>
 
@@ -69,7 +69,6 @@ import { swiper, swiperSlide } from "vue-awesome-swiper";
 import axios from "axios";
 import url from "@/service.config";
 import { mapState } from "vuex";
-console.log(mapState);
 
 export default {
   name: "Home",

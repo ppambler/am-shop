@@ -24,6 +24,7 @@
               :finished="finished"
             >
               <div
+                @click="goDetail(item._id)"
                 class="content-item"
                 v-for="(item, index) in productList"
                 :key="index"
@@ -71,6 +72,9 @@ export default {
       });
   },
   methods: {
+    goDetail(id) {
+      this.$router.push(`/detail/${id}`);
+    },
     selectCategory(typeId, index) {
       this.active = index;
       this.typeId = typeId;

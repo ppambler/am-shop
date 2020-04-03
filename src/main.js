@@ -19,6 +19,9 @@ import "@/mock/mock.js";
 
 // 按需引入组件
 import {
+  GoodsAction,
+  GoodsActionIcon,
+  GoodsActionButton,
   PullRefresh,
   List,
   Row,
@@ -39,6 +42,9 @@ import {
 } from "vant";
 // 可链式注册组件
 Vue.use(Icon)
+  .use(GoodsAction)
+  .use(GoodsActionButton)
+  .use(GoodsActionIcon)
   .use(PullRefresh)
   .use(List)
   .use(Row)
@@ -56,10 +62,8 @@ Vue.use(Icon)
   .use(Lazyload)
   .use(NavBar);
 
-let vm = new Vue({
+new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount("#app");
-
-console.log(vm);
