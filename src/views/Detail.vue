@@ -15,7 +15,7 @@
     <div class="toolbar">
       <van-goods-action>
         <van-goods-action-icon icon="chat-o" text="客服" />
-        <van-goods-action-icon icon="cart-o" text="购物车" />
+        <van-goods-action-icon icon="cart-o" text="购物车" @click="jumpCart" />
         <van-goods-action-button
           type="warning"
           text="加入购物车"
@@ -35,7 +35,8 @@ export default {
   name: "Detail",
   data() {
     return {
-      detail: {}
+      detail: {},
+      purchasesNum: 1
     };
   },
   created() {
@@ -57,6 +58,9 @@ export default {
     ...mapState(["userInfo"])
   },
   methods: {
+    jumpCart() {
+      this.$router.push("/cart");
+    },
     addCart() {
       // 检查用户是否登录  前端vuex保存登录状态
       // 如果后端保存登录状态 koa-session  redis
@@ -67,6 +71,24 @@ export default {
         }, 1000);
       } else {
         // 插入购物车
+        axios({
+          url: url.addCart,
+          method: "post",
+          data: {
+            productId: this.detail._id,
+            userId: this.userInfo._id,
+            purchasesNum: this.purchasesNum
+          }
+        })
+          .then(res => {
+            // console.log(res);
+            if (res.data.code == 200) {
+              this.$toast.success(res.data.message);
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
       }
     }
   }

@@ -17,6 +17,9 @@ const routes = [
     components: {
       default: Home,
       "footer-bar": FooterBar
+    },
+    meta: {
+      keepAlive: true
     }
   },
   {
@@ -25,6 +28,9 @@ const routes = [
     components: {
       default: () => import("../views/Category.vue"),
       "footer-bar": FooterBar
+    },
+    meta: {
+      keepAlive: true
     }
   },
   {

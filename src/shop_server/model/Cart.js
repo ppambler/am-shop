@@ -9,7 +9,8 @@ const cartSchema = new Schema({
     ref: "Product" // 指向联合查询的model
   },
   userId: ObjectId,
-  createDate: { type: Date, default: Date.now() }
+  createDate: { type: Date, default: Date.now() },
+  purchasesNum: { type: Number, min: 1, max: 10 }
 });
 
 mongoose.model("Cart", cartSchema);
