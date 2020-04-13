@@ -22,6 +22,8 @@ let user = require("./controller/user.js");
 let product = require("./controller/product.js");
 let type = require("./controller/type.js");
 
+let cart = require("./controller/cart");
+
 let router = new Router();
 
 // 返回Router，类似于缓存一个路由到router实例里边
@@ -29,6 +31,7 @@ router.use("/user", user.routes());
 
 router.use("/product", product.routes());
 router.use("/type", type.routes());
+router.use("/cart", cart.routes());
 
 // router.routes()，返回中间件函数，注册所有路由
 app.use(router.routes());
